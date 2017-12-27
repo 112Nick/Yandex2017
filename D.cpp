@@ -140,7 +140,13 @@ int main() {
     return 0;
   }
   if (A.size() == 1 || B.size() == 1) {
-    std::cout << (rand() % 2 ? "Yes" : "No") << std::endl;
+    std::cout << "No" << std::endl;
+    
+    return 0;
+  }
+  if (A.size() == 0 || B.size() == 0) {
+    std::cout << "Yes" << std::endl;
+    
     return 0;
   }
   std::cout << "Yes" << std::endl;

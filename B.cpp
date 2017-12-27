@@ -11,7 +11,7 @@ enum State {
   FAIL
 };
 
-bool is_alpha(char c) {
+bool isAlpha(char c) {
   return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
 }
 
@@ -20,7 +20,7 @@ int main() {
     char cur;
     std::string output;
     while ((cur = std::getchar()) != EOF) {
-        if (is_alpha(cur)) {
+        if (isAlpha(cur)) {
             if (currentState == SENTENCE_SPACE) {
                 output.push_back(std::toupper(cur));
                 currentState = SENTENCE_BEGIN;

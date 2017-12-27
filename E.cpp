@@ -12,7 +12,9 @@ public:
     a = std::vector<std::pair<long long, long long>>(4 * n, {1, 0});
   }
 
-  long long getMax(int l, int r) { return getMax(1, 0, n - 1, l, r, 0); }
+  long long getMax(int l, int r) { 
+    return getMax(1, 0, n - 1, l, r, 0); 
+  }
 
   void setValue(int l, int r, long long value) {
     setValue(1, 0, n - 1, l, r, value);

@@ -58,10 +58,10 @@
     return cnt;
  }
 
- int** game(int** field_prev, int n, int m, int k) {
-    int** field_cur = new int* [n];
+ int** game(int** fieldPrev, int n, int m, int k) {
+    int** fieldCur = new int* [n];
     for (int i = 0; i < n; i++) {
-        field_cur[i] = new int [m];
+        fieldCur[i] = new int [m];
     }
     int** result = new int* [n];
     for (int i = 0; i < n; i++) {
@@ -73,31 +73,30 @@
     for (int x = 0 ; x < k; x++) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-
-                if (neighboursStable(field_prev, n, m, i, j) > 1) {
-                    field_cur[i][j] = 2;
+                if (neighboursStable(fieldPrev, n, m, i, j) > 1) {
+                    fieldCur[i][j] = 2;
                 }
-                else if (neighboursActive(field_prev, n, m, i, j) >= 1) {
-                    field_cur[i][j] = 3;                
+                else if (neighboursActive(fieldPrev, n, m, i, j) >= 1) {
+                    fieldCur[i][j] = 3;                
                 }
                 else {
-                    field_cur[i][j] = 1;                
+                    fieldCur[i][j] = 1;                
                 }
-                if(field_prev[i][j] != field_cur[i][j]) {
+                if(fieldPrev[i][j] != fieldCur[i][j]) {
                     result[i][j]++;
                 }
             }
         }
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) { 
-                field_prev[i][j] = field_cur[i][j];
+                fieldPrev[i][j] = fieldCur[i][j];
             }
         }
     }
     for (int i = 0; i < n; i++) {
-        delete[] field_cur[i];
+        delete[] fieldCur[i];
     }
-    delete[] field_cur;
+    delete[] fieldCur;
     return result; 
  }
 
